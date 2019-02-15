@@ -24,19 +24,27 @@ var alkiUl = document.getElementById('alki');
 
 
 var firstandpike = {
-  name: 'firstandpike', 
-  minimum: '23',
-  maximum: '65',
-  average: '6.3',
- 
-  render: function() {
-    // for(var i = 0; i < hours.length; i++) {
-    //   var liEl = document.createElement('li');
-    //   liEl.textContent = `${hours[i]}: ${this.shopStats[i]} stats`;
-    //   firstandpikeUl.appendChild(liEl);
-    console.log("testtest");
-    }
+  name: 'firstandpike',
+  minimum: 23,
+  maximum: 65,
+  average: 6.3,
+  random: function getRandomNumber() {
+    let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
+    console.log(random_number);
+    return random_number;
   }
 
-// };
-firstandpike.render();
+
+//     for(var i = 0; i < hours.length; i++) {
+//       var liEl = document.createElement('li');
+//       liEl.textContent = `${hours[i]}: ${this.shopStats[i]} stats`;
+//       firstandpikeUl.appendChild(liEl);
+//     render: function () {
+//     console.log("testtest");
+// }
+// }
+
+};
+
+firstandpike.random();
+// firstandpike.render();
