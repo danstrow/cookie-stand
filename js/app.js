@@ -24,6 +24,14 @@ var seattlecenterUl = document.getElementById('seattlecenter');
 var caphillUl = document.getElementById('caphill');
 var alkiUl = document.getElementById('alki');
 
+// function Shops (name, minimum, maximum, average, customerTotal) {
+//   this.name = name;
+//   this.minimum = minimum;
+//   this.maximum = maximum;
+//   this.average = average;
+//   this.customerTotal = customerTotal;
+// }
+
 
 var firstandpike = {
   name: 'firstandpike',
