@@ -46,5 +46,60 @@ var firstandpike = {
 
 };
 
+var seaintl = {
+  name: 'seaintl',
+  minimum: 3,
+  maximum: 24,
+  average: 1.2,
+  random: function getRandomNumber() {
+    let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
+    console.log(random_number);
+    return random_number;
+  }
+
+};
+
+var seattlecenter = {
+  name: 'seattlecenter',
+  minimum: 11,
+  maximum: 38,
+  average: 3.7,
+  random: function getRandomNumber() {
+    let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
+    console.log(random_number);
+    return random_number;
+  }
+
+};
+
+var caphill = {
+  name: 'seaintl',
+  minimum: 20,
+  maximum: 38,
+  average: 2.3,
+  random: function getRandomNumber() {
+    let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
+    console.log(random_number);
+    return random_number;
+  }
+
+};
+
+var alki = {
+  name: 'seaintl',
+  minimum: 2,
+  maximum: 16,
+  average: 4.6,
+  random: function getRandomNumber() {
+    let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
+    console.log(random_number);
+    return random_number;
+  }
+
+};
 firstandpike.random();
+seaintl.random();
+seattlecenter.random();
+caphill.random();
+alki.random();
 // firstandpike.render();
