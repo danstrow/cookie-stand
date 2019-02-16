@@ -1,4 +1,6 @@
 'use strict';
+var yugearray = [];
+
 
 var hours = [
   '6 am',
@@ -46,8 +48,10 @@ var firstandpike = {
       this.customerTotal = this.random();
       
       
-      liEl.textContent = `${hours[i]}: ${this.customerTotal} stats`;
+      liEl.textContent = `${hours[i]}: ${this.customerTotal} cookies`;
       firstandpikeUl.appendChild(liEl);
+      yugearray.push(firstandpike);
+      console.log(yugearray);
     
 }
 }
@@ -59,55 +63,137 @@ var seaintl = {
   minimum: 3,
   maximum: 24,
   average: 1.2,
-  random: function getRandomNumber() {
+  customerTotal: 0,
+  random: function () {
     let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
-    console.log(random_number);
-    return random_number;
-  }
+    var totalCookies = Math.floor (random_number * this.average);
+    return totalCookies;
+  },
 
-};
+  render: function () {
+
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+   
+    
+      // eslint-disable-next-line no-inner-declarations
+     
+      this.customerTotal = this.random();
+      
+      
+      liEl.textContent = `${hours[i]}: ${this.customerTotal} cookies`;
+      seaintlUl.appendChild(liEl);
+      yugearray.push(seaintl);
+      console.log(yugearray);
+    
+}
+}
+}
+seaintl.render ();
 
 var seattlecenter = {
   name: 'seattlecenter',
   minimum: 11,
   maximum: 38,
   average: 3.7,
-  random: function getRandomNumber() {
+  customerTotal: 0,
+  random: function () {
     let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
-    console.log(random_number);
-    return random_number;
-  }
+    var totalCookies = Math.floor (random_number * this.average);
+    return totalCookies;
+  },
 
-};
+  render: function () {
+
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+   
+    
+      // eslint-disable-next-line no-inner-declarations
+     
+      this.customerTotal = this.random();
+      
+      
+      liEl.textContent = `${hours[i]}: ${this.customerTotal} cookies`;
+      seattlecenterUl.appendChild(liEl);
+      yugearray.push(seattlecenter);
+      console.log(yugearray);
+    
+    }
+  }
+}
+seattlecenter.render ();
 
 var caphill = {
-  name: 'seaintl',
+  name: 'caphill',
   minimum: 20,
   maximum: 38,
   average: 2.3,
-  random: function getRandomNumber() {
+  customerTotal: 0,
+  random: function () {
     let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
-    console.log(random_number);
-    return random_number;
-  }
+    var totalCookies = Math.floor (random_number * this.average);
+    return totalCookies;
+  },
 
-};
+  render: function () {
+
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+   
+    
+      // eslint-disable-next-line no-inner-declarations
+     
+      this.customerTotal = this.random();
+      
+      
+      liEl.textContent = `${hours[i]}: ${this.customerTotal} cookies`;
+      caphillUl.appendChild(liEl);
+      yugearray.push(caphill);
+      console.log(yugearray);
+    
+}
+}
+}
+caphill.render ();
 
 var alki = {
-  name: 'seaintl',
+  name: 'alki',
   minimum: 2,
   maximum: 16,
   average: 4.6,
-  random: function getRandomNumber() {
+  customerTotal: 0,
+  random: function () {
     let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
-    console.log(random_number);
-    return random_number;
-  }
+    var totalCookies = Math.floor (random_number * this.average);
+    return totalCookies;
+  },
 
-};
+  render: function () {
+
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+   
+    
+      // eslint-disable-next-line no-inner-declarations
+     
+      this.customerTotal = this.random();
+      
+      
+      liEl.textContent = `${hours[i]}: ${this.customerTotal} cookies`;
+      alkiUl.appendChild(liEl);
+      yugearray.push(alki);
+      console.log(yugearray);
+    
+}
+}
+}
+alki.render ();
+
+
 firstandpike.random();
 seaintl.random();
 seattlecenter.random();
 caphill.random();
 alki.random();
-// firstandpike.render();
+
