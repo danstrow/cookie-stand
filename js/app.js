@@ -28,23 +28,31 @@ var firstandpike = {
   minimum: 23,
   maximum: 65,
   average: 6.3,
-  random: function getRandomNumber() {
+  customerTotal: 0,
+  random: function () {
     let random_number = Math.floor (Math.random() * (this.maximum - this.minimum)) + this.minimum;
-    console.log(random_number);
-    return random_number;
-  }
+    var totalCookies = Math.floor (random_number * this.average);
+    return totalCookies;
+  },
 
+  render: function () {
 
-//     for(var i = 0; i < hours.length; i++) {
-//       var liEl = document.createElement('li');
-//       liEl.textContent = `${hours[i]}: ${this.shopStats[i]} stats`;
-//       firstandpikeUl.appendChild(liEl);
-//     render: function () {
-//     console.log("testtest");
-// }
-// }
-
-};
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+   
+    
+      // eslint-disable-next-line no-inner-declarations
+     
+      this.customerTotal = this.random();
+      
+      
+      liEl.textContent = `${hours[i]}: ${this.customerTotal} stats`;
+      firstandpikeUl.appendChild(liEl);
+    
+}
+}
+}
+firstandpike.render ();
 
 var seaintl = {
   name: 'seaintl',
