@@ -1,0 +1,31 @@
+
+          *{
+              background-color:rgb(106, 132, 182);
+              text-align: center;
+          }
+          img{
+              background-color: white;
+              padding: 20px;
+              border-radius: 50px;
+          }
+          h1{
+              font-family: fantasy, Geneva, Tahoma, sans-serif;
+              color: rgb(131, 94, 90);
+          }
+          table{
+              display: inline;
+          }
+          td{
+              background-color: mediumseagreen;
+              border: medium solid lightsalmon;
+              padding: 15px;
+              font-family: Georgia, 'Times New Roman', Times, serif;
+              font-weight: bolder;
+              font-size: 20px;
+              color: lightsalmon;
+          }
+          #storename{
+              background-color: rgb(54, 107, 104);
+              text-decoration: underline;
+          }
+    
