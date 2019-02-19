@@ -3,6 +3,7 @@ var yugearray = [];
 
 
 var hours = [
+  'Store Name',
   '6 am',
   '7 am',
   '8 am',
@@ -17,6 +18,7 @@ var hours = [
   '5 pm',
   '6 pm',
   '7 pm',
+  'Total daily cookies'
 ];
 
 var makeShops = [];
@@ -37,12 +39,12 @@ function Shop(name, minimum, maximum, average) {
   this.average = average;
   this.customerTotal = [];
 
-  for (var i =0; i < hours.length; i++) {
-    this.customerTotal.push;(randomCustomer(this.minimunm, this.maximum, this.average));
+  for (var i = 0; i < hours.length; i++) {
+    this.customerTotal.push(randomCustomer(this.minimunm, this.maximum, this.average));
   }
 }
 function randomCustomer(minimum, maximum, average) {
-  this.customerTotal.push(randomCustomer(this.monomuim, this.maximum, this.average))
+  this.customerTotal.push(randomCustomer(this.minimum, this.maximum, this.average));
 }
 function newShops() {
   // makeHeaderRow();
@@ -54,6 +56,16 @@ function newShops() {
   // makeTotalsRow();
   makeShops.push(this);
 }
+
+
+var makeTable = document.getElementById('SalmonCookieData');
+var trEl = document.createElement('tr');
+for (var i = 0; i < hours.length; i++) {
+  var tdEl = document.createElement('td');
+  tdEl.textContent = hours[i];
+  trEl.appendChild(tdEl);
+}
+makeTable.appendChild(trEl);
 
 // var table = document.getElementById('shell');
 // var data = [];
@@ -69,11 +81,11 @@ function newShops() {
 //     }
 
 //   }
-function randomCustomer(Shop) {
+// function randomCustomer(Shop) {
 
-  var random_number = Math.floor(Math.random() * (this.maximum - this.minimum)) + this.minimum;
-  totalCookies = Math.floor(random_number * this.average);
-  return random_number;
+//   var random_number = Math.floor(Math.random() * (this.maximum - this.minimum)) + this.minimum;
+//   totalCookies = Math.floor(random_number * this.average);
+//   return totalCookies;
   // function makeHeaderRow () {
   //   var SalmonCookieData = document.getElementById ('SalmonCookieData');
   //   var thEl = document.createElementById ('th');
@@ -88,16 +100,16 @@ function randomCustomer(Shop) {
   //   SalmonCookieData.appendChild('tr');
   //   for( var i = 0; i < hours.length; i++) {
   //     var trEl = document.createElement('tr');
-  //   }
+//   }
   // }
 
 
 
 
 
-}
 
-randomCustomer();
+
+
 
 // this.cookieTotal = function() {
 // return this.cookie;
