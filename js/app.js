@@ -18,7 +18,6 @@ var hours = [
   '6 pm',
   '7 pm',
   '8 pm',
-  'Total daily cookies'
 ];
 
 function CookieStand(locationName, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerSale, id) {
@@ -97,10 +96,10 @@ function makeFooterRow() {
   trEl.appendChild(thEl);
   var thisDaysTotal = 0;
   for(var i = 0; i < hours.length; i++) {
-    var thisHoursTotal = 0
+    var thisHoursTotal = 0;
     for (var j = 0; j < allShops.length; j++) {
-    thisHoursTotal = thisHoursTotal + yugearray[j].cookiesEachHour[i];
-    } 
+      thisHoursTotal = thisHoursTotal + yugearray[j].cookiesEachHour[i];
+    }
     thisDaysTotal = thisDaysTotal + thisHoursTotal;
     thEl = document.createElement('th');
     thEl.textContent = thisHoursTotal;
