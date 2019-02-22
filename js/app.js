@@ -1,9 +1,8 @@
 'use strict';
-// var yugearray = [];
+var yugearray = [];
 var theTable = document.getElementById('sales-table');
 
 var hours = [
-  'Shop Name',
   '6 am',
   '7 am',
   '8 am',
@@ -18,6 +17,7 @@ var hours = [
   '5 pm',
   '6 pm',
   '7 pm',
+  '8 pm',
   'Total daily cookies'
 ];
 
@@ -43,6 +43,7 @@ function CookieStand(locationName, minCustomersPerHour, maxCustomersPerHour, avg
       this.totalDailyCookies += oneHour;
     }
   };
+  yugearray.push (this);
 }
 
 CookieStand.prototype.render = function() {
@@ -88,21 +89,52 @@ function makeHeaderRow() {
   trEl.appendChild(thEl);
   theTable.appendChild(trEl);
 }
+function makeFooterRow() {
+  var trEl = document.createElement('tr');
+  
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Hourly Totals';
+  trEl.appendChild(thEl);
+  var thisDaysTotal = 0;
+  for(var i = 0; i < hours.length; i++) {
+    var thisHoursTotal = 0
+    for (var j = 0; j < allShops.length; j++) {
+    thisHoursTotal = thisHoursTotal + yugearray[j].cookiesEachHour[i];
+    } 
+    thisDaysTotal = thisDaysTotal + thisHoursTotal;
+    thEl = document.createElement('th');
+    thEl.textContent = thisHoursTotal;
+    trEl.appendChild(thEl);
+  }
 
+  thEl = document.createElement('th');
+  thEl.textContent = thisDaysTotal;
+  trEl.appendChild(thEl);
+  theTable.appendChild(trEl);
+}
+
+makeHeaderRow ();
 var pikePlace = new CookieStand('Pike Place Market', 23, 65, 6.3, 'pike');
 var seatacAirport = new CookieStand('Seatac Airport', 3, 24, 1.2, 'seatac');
 var seattleCenter = new CookieStand('Seattle Center', 11, 38, 3.7, 'seattlecenter');
 var capitolHill = new CookieStand('Capitol Hill', 20, 38, 2.3, 'caphill');
 var alki = new CookieStand('Alki', 2, 16, 4.6, 'alki');
 
+
 var allShops = [pikePlace, seatacAirport, seattleCenter, capitolHill, alki];
 
 (function renderTable() {
-  makeHeaderRow();
   for(var i = 0; i < allShops.length; i++) {
     allShops[i].render();
   }
 })();
+makeFooterRow ();
+// (function renderTable() {
+//   makeFooterRow();
+//   for(var i = 0; i < allShops.length; i++) {
+//     allShops[i].render();
+//   }
+// })();
 
 
 // var makeShops = [];
