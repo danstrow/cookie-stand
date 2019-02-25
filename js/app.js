@@ -21,7 +21,7 @@ var hours = [
 ];
 
 function CookieStand(locationName, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerSale, id) {
-  this.locationName = locationName; 
+  this.locationName = locationName;
   this.minCustomersPerHour = minCustomersPerHour;
   this.maxCustomersPerHour = maxCustomersPerHour;
   this.avgCookiesPerSale = avgCookiesPerSale;
@@ -29,12 +29,12 @@ function CookieStand(locationName, minCustomersPerHour, maxCustomersPerHour, avg
   this.cookiesEachHour = [];
   this.totalDailyCookies = 0;
   this.id = id;
-  this.calcCustomersEachHour = function() {
+  this.calcCustomersEachHour = function () {
     for (var i = 0; i < hours.length; i++) {
       this.customersEachHour.push(random(this.minCustomersPerHour, this.maxCustomersPerHour));
     }
   };
-  this.calcCookiesEachHour = function() {
+  this.calcCookiesEachHour = function () {
     this.calcCustomersEachHour();
     for (var i = 0; i < hours.length; i++) {
       var oneHour = Math.ceil(this.customersEachHour[i] * this.avgCookiesPerSale);
@@ -42,12 +42,34 @@ function CookieStand(locationName, minCustomersPerHour, maxCustomersPerHour, avg
       this.totalDailyCookies += oneHour;
     }
   };
-  yugearray.push (this);
+  yugearray.push(this);
 }
+// attempted functions to make form work
+var createStore = function (event) {
+ 
+  var shopName = event.target.name.value;
+  var minimumCookies = parseInt(event.target.minimum.value);
+  var maximumCookies = parseInt(event.target.maximum.value);
+  var averageCookies = parseInt(event.target.average.value);
+  console.log(shopName, minimumCookies, maximumCookies, averageCookies);
+  new CookieStand (shopName, minimumCookies, maximumCookies, averageCookies);
+  var theChart = document.getElementById('storeTable');
+  var theFoot = document.createEelment('chartfooter');
+  event.preventDefault();
+  // event.stopPropagation();
+  var takeout = document.getElementById('tableFooter');
+  takeout.parentElement.removeChild(takeout);
+  theFoot.setAttribute('id', 'tableFooter');
+  theChart.appendChild(theFoot);
+  makeFooterRow();
+};
+theTable.addEventListener('submit', createStore);
+// end attempted functions to make forms work
 
-CookieStand.prototype.render = function() {
+
+CookieStand.prototype.render = function () {
   this.calcCookiesEachHour();
-  
+
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
 
@@ -72,12 +94,12 @@ function random(min, max) {
 
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
-  
+
   var thEl = document.createElement('th');
   thEl.textContent = 'Locations';
   trEl.appendChild(thEl);
 
-  for(var i = 0; i < hours.length; i++) {
+  for (var i = 0; i < hours.length; i++) {
     thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
@@ -90,15 +112,15 @@ function makeHeaderRow() {
 }
 function makeFooterRow() {
   var trEl = document.createElement('tr');
-  
+
   var thEl = document.createElement('th');
   thEl.textContent = 'Hourly Totals';
   trEl.appendChild(thEl);
   var thisDaysTotal = 0;
-  for(var i = 0; i < hours.length; i++) {
+  for (var i = 0; i < hours.length; i++) {
     var thisHoursTotal = 0;
     for (var j = 0; j < allShops.length; j++) {
-      thisHoursTotal = thisHoursTotal + yugearray[j].cookiesEachHour[i];
+      thisHoursTotal += yugearray[j].cookiesEachHour[i];
     }
     thisDaysTotal = thisDaysTotal + thisHoursTotal;
     thEl = document.createElement('th');
@@ -112,7 +134,7 @@ function makeFooterRow() {
   theTable.appendChild(trEl);
 }
 
-makeHeaderRow ();
+makeHeaderRow();
 var pikePlace = new CookieStand('Pike Place Market', 23, 65, 6.3, 'pike');
 var seatacAirport = new CookieStand('Seatac Airport', 3, 24, 1.2, 'seatac');
 var seattleCenter = new CookieStand('Seattle Center', 11, 38, 3.7, 'seattlecenter');
@@ -123,11 +145,11 @@ var alki = new CookieStand('Alki', 2, 16, 4.6, 'alki');
 var allShops = [pikePlace, seatacAirport, seattleCenter, capitolHill, alki];
 
 (function renderTable() {
-  for(var i = 0; i < allShops.length; i++) {
+  for (var i = 0; i < allShops.length; i++) {
     allShops[i].render();
   }
 })();
-makeFooterRow ();
+makeFooterRow();
 // (function renderTable() {
 //   makeFooterRow();
 //   for(var i = 0; i < allShops.length; i++) {
