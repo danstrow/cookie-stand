@@ -46,25 +46,27 @@ function CookieStand(locationName, minCustomersPerHour, maxCustomersPerHour, avg
 }
 // attempted functions to make form work
 var createStore = function (event) {
-  event.preventDefault();
-  event.stopProgapation();
-  var takeout = document.getEleemntById('tableFooter');
-  takeout.parentElement.removeChild(takeout);
-
-  var storeName = event.target.name.value;
-  var storeMinimum = parseInt(event.target.minimum.value);
-  var storeMaximum = parseInt(event.target.maximum.value);
-  var storeCookieAverage = parseInt(event.target.average.value);
-
-  new CookieStand (storeName, storeMinimum, storeMaximum, storeCookieAverage);
+ 
+  var shopName = event.target.name.value;
+  var minimumCookies = parseInt(event.target.minimum.value);
+  var maximumCookies = parseInt(event.target.maximum.value);
+  var averageCookies = parseInt(event.target.average.value);
+  console.log(shopName, minimumCookies, maximumCookies, averageCookies);
+  new CookieStand (shopName, minimumCookies, maximumCookies, averageCookies);
   var theChart = document.getElementById('storeTable');
-  var theFooti = document.createEelment('chartfooter');
-  theFooti.setAttribute('id', 'tableFooter');
-  theChart.appendChild(theFooti);
+  var theFoot = document.createEelment('chartfooter');
+  event.preventDefault();
+  // event.stopPropagation();
+  var takeout = document.getElementById('tableFooter');
+  takeout.parentElement.removeChild(takeout);
+  theFoot.setAttribute('id', 'tableFooter');
+  theChart.appendChild(theFoot);
   makeFooterRow();
 };
 theTable.addEventListener('submit', createStore);
 // end attempted functions to make forms work
+
+
 CookieStand.prototype.render = function () {
   this.calcCookiesEachHour();
 
